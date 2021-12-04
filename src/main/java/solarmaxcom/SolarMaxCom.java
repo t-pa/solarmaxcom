@@ -128,7 +128,8 @@ public final class SolarMaxCom implements Runnable {
                             unit = ((Keys.DoubleKey) dataKey).unit;
                         }
 
-                        logger.info(k.key + " " + k.name + ": " + dataKey.decode(value) + " " + unit);
+                        logger.info(k.key + " " + k.name + ": " + 
+                                dataKey.standardFormat(dataKey.decode(value)) + " " + unit);
                         if (mqtt != null) {
                             mqtt.publishWith().topic("solarmax/" + device + "/" + k.key)
                                     .payload(dataKey.standardFormat(dataKey.decode(value)).getBytes())
