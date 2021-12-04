@@ -36,7 +36,7 @@ import picocli.CommandLine.Command;
  * Main class which parses the command line, reads values from a SolarMax device and optionally
  * sends the received data via MQTT.
  */
-@Command(name = "SolarMaxCom", version = "SolarMaxCom version 0.0.1", mixinStandardHelpOptions = true)
+@Command(name = "SolarMaxCom", version = "SolarMaxCom version 0.1.0", mixinStandardHelpOptions = true)
 public final class SolarMaxCom implements Runnable {
     
     private static final Logger logger = LoggerFactory.getLogger(SolarMaxCom.class);
