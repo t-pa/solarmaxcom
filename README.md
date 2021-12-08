@@ -54,6 +54,21 @@ pi@raspi:~ $ java -jar solarmaxcom.jar -m localhost -r 5000 /dev/ttyUSB2 PAC,KT0
 [...]
 ```
 
+MQTT messages are sent with the topic `solarmax/[device number]/[key]`. In addition, the online status (whether the device answered at all) is sent as `solarmax/[device number]/online`:
+
+```
+pi@raspi:~ $ mosquitto_sub -v -t "solarmax/#"
+solarmax/1/online 1
+solarmax/1/PAC 135.0
+solarmax/1/KT0 10
+solarmax/1/KDY 0.7
+solarmax/1/online 1
+solarmax/1/PAC 133.0
+solarmax/1/KT0 10
+solarmax/1/KDY 0.7
+[...]
+```
+
 ## Ethernet connection
 Some SolarMax devices have an Ethernet port. This software currently cannot connect to these devices. As they use the same protocol, it should be easy to implement support for Ethernet-connected devices.
 
